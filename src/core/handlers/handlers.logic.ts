@@ -7,6 +7,7 @@ import {
 import { animations } from "../animations/animations.constants";
 import { animate, handleCancelAnimation } from "../animations/animations.utils";
 import { getCenterPosition } from "../../utils";
+import { handleAlignToBounds } from "core/pan/panning.logic";
 
 export const zoomIn =
   (contextInstance: ReactZoomPanPinchContext) =>
@@ -62,6 +63,7 @@ export const setTransform =
     };
 
     animate(contextInstance, targetState, animationTime, animationType);
+    handleAlignToBounds(contextInstance);
   };
 
 export const resetTransform =
